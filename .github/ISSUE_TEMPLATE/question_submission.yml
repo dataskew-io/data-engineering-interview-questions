@@ -1,0 +1,68 @@
+name: Question Submission
+description: Submit a new interview question for review.
+title: "New Question: <Question Title>"
+labels: ["new question", "pending review"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for taking the time to contribute to our interview prep list! Please fill out the form below."
+  - type: input
+    id: question
+    attributes:
+      label: "Question"
+      description: "The full text of the interview question."
+      placeholder: "e.g., Explain the difference between '==' and '==='."
+    validations:
+      required: true
+  - type: input
+    id: company
+    attributes:
+      label: "Company"
+      description: "The company that asked this question."
+      placeholder: "e.g., Google"
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: "Difficulty Level"
+      description: "Select the perceived difficulty of the question."
+      options:
+        - Easy
+        - Medium
+        - Hard
+    validations:
+      required: true
+  - type: dropdown
+    id: topic
+    attributes:
+      label: "Primary Topic"
+      description: "Select the main topic of the question."
+      options:
+        - Data Structures & Algorithms
+        - Live Coding
+        - Performance Optimisation
+        - System Design
+        - Troubleshooting
+        - Data Modeling
+        - Big O Notation
+        - Orchestration
+        - Behavioral
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Solution/Answer (Optional)"
+      description: "Provide a brief explanation or code snippet for the solution."
+      placeholder: "A good solution would use..."
+      render: "markdown"
+  - type: checkboxes
+    id: sharing_permission
+    attributes:
+      label: "Permission to Share"
+      description: "By submitting this question, you confirm that you are not violating any non-disclosure agreements or company policies."
+      options:
+        - label: I am allowed to share this question.
+          required: true
