@@ -14,11 +14,11 @@
   },
   {
     "id": 1757595202697,
-    "question": "What’s the difference between OLTP and OLAP databases?",
+    "question": "What's the difference between OLTP and OLAP databases?",
     "company": "Seed Question",
     "difficulty": "easy",
     "topic": "Data Modeling",
-    "solution": "```markdown\nOLTP (Online Transaction Processing):",
+    "solution": "```markdown\nOLTP (Online Transaction Processing):\n- Designed for real-time transaction processing\n- Handles high volume of short, simple transactions\n- Optimized for INSERT, UPDATE, DELETE operations\n- Supports concurrent users\n- Examples: Banking systems, e-commerce platforms\n\nOLAP (Online Analytical Processing):\n- Designed for complex analytical queries\n- Handles large volumes of historical data\n- Optimized for SELECT operations and aggregations\n- Used for reporting and data analysis\n- Examples: Data warehouses, business intelligence tools\n\nKey differences:\n- OLTP focuses on transaction speed, OLAP focuses on query complexity\n- OLTP uses normalized schemas, OLAP often uses denormalized/star schemas\n- OLTP has frequent updates, OLAP has infrequent updates (batch loads)\n```",
     "submittedBy": "dorianganessa",
     "submittedAt": "2025-09-11T12:53:22.697Z",
     "issueNumber": 13,

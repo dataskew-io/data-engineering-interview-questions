@@ -60,7 +60,8 @@ jobs:
             
             // Extract form fields using regex patterns
             const extractField = (fieldName, body) => {
-              const regex = new RegExp(`### ${fieldName}\\s*\\n\\s*(.+?)(?=\\n###|\\n\\n|$)`, 'is');
+              // More robust pattern that handles multiline content better
+              const regex = new RegExp(`### ${fieldName}\\s*\\n([\\s\\S]*?)(?=\\n###|$)`, 'i');
               const match = body.match(regex);
               return match ? match[1].trim() : '';
             };
