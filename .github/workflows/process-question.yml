@@ -2,11 +2,23 @@ name: Process New Question Submission
 
 on:
   issues:
-    types: [opened]
+    types: [opened, labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to process'
+        required: true
+        type: number
 
 jobs:
   process-question:
-    if: contains(github.event.issue.labels.*.name, 'new question')
+    if: |
+      (github.event_name == 'issues' && (
+        contains(github.event.issue.labels.*.name, 'new question') ||
+        contains(github.event.issue.body, '### Question') ||
+        contains(github.event.issue.title, 'New Question:')
+      )) ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     
     steps:
@@ -27,8 +39,22 @@ jobs:
           script: |
             const fs = require('fs');
             
+            // Get issue data - either from event or manual dispatch
+            let issue;
+            if (context.eventName === 'workflow_dispatch') {
+              const issueNumber = context.payload.inputs.issue_number;
+              const issueResponse = await github.rest.issues.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber
+              });
+              issue = issueResponse.data;
+            } else {
+              issue = context.payload.issue;
+            }
+            
             // Parse the issue body to extract form data
-            const issueBody = context.payload.issue.body;
+            const issueBody = issue.body;
             console.log('Issue body:', issueBody);
             
             // Extract form fields using regex patterns
@@ -58,9 +84,9 @@ jobs:
               difficulty: difficulty.toLowerCase(),
               topic: topic,
               solution: solution || null,
-              submittedBy: context.payload.issue.user.login,
+              submittedBy: issue.user.login,
               submittedAt: new Date().toISOString(),
-              issueNumber: context.payload.issue.number
+              issueNumber: issue.number
             };
             
             console.log('Parsed question:', JSON.stringify(questionEntry, null, 2));
@@ -93,13 +119,12 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Add new question from issue #${{ github.event.issue.number }}"
-          title: "Review: New Question from ${{ github.event.issue.user.login }}"
+          commit-message: "Add new question from issue #${{ github.event_name == 'workflow_dispatch' && github.event.inputs.issue_number || github.event.issue.number }}"
+          title: "Review: New Question from Issue #${{ github.event_name == 'workflow_dispatch' && github.event.inputs.issue_number || github.event.issue.number }}"
           body: |
             ## New Question Submission Review
             
-            **Submitted by:** @${{ github.event.issue.user.login }}
-            **Original Issue:** #${{ github.event.issue.number }}
+            **Original Issue:** #${{ github.event_name == 'workflow_dispatch' && github.event.inputs.issue_number || github.event.issue.number }}
             
             ### Question Details:
             - **Company:** ${{ github.event.issue.body }}
@@ -118,7 +143,7 @@ jobs:
             - **Request Changes**: Comment on specific issues and close this PR
             
             ---
-            *This PR was automatically created from issue #${{ github.event.issue.number }}*
+            *This PR was automatically created from issue #${{ github.event_name == 'workflow_dispatch' && github.event.inputs.issue_number || github.event.issue.number }}*
           branch: question-${{ steps.parse-question.outputs.question-id }}
           delete-branch: true
           labels: |
@@ -130,8 +155,11 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const issueNumber = context.eventName === 'workflow_dispatch' 
+              ? context.payload.inputs.issue_number 
+              : context.issue.number;
             github.rest.issues.createComment({
-              issue_number: context.issue.number,
+              issue_number: issueNumber,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `✅ Thank you for your submission! 
@@ -153,8 +181,11 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const issueNumber = context.eventName === 'workflow_dispatch' 
+              ? context.payload.inputs.issue_number 
+              : context.issue.number;
             github.rest.issues.addLabels({
-              issue_number: context.issue.number,
+              issue_number: issueNumber,
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ['under-review']
