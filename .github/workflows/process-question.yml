@@ -266,64 +266,16 @@ jobs:
             
             console.log('✅ Question added to collection successfully');
             
-            // Calculate statistics for README update
-            const stats = {
-              total: questions.length,
-              easy: questions.filter(q => q.difficulty === 'easy').length,
-              medium: questions.filter(q => q.difficulty === 'medium').length,
-              hard: questions.filter(q => q.difficulty === 'hard').length
-            };
-            
-            console.log('Question statistics:', stats);
-            
-            // Set outputs for use in next step
+            // Set output for use in next step
             core.setOutput('issue-number', questionData.issueNumber);
             core.setOutput('difficulty', difficulty);
-            core.setOutput('total-questions', stats.total);
-            core.setOutput('easy-count', stats.easy);
-            core.setOutput('medium-count', stats.medium);
-            core.setOutput('hard-count', stats.hard);
 
-      - name: Update README with question statistics
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            
-            // Read current README
-            let readmeContent = fs.readFileSync('README.md', 'utf8');
-            
-            // Get statistics from previous step
-            const total = '${{ steps.add-question.outputs.total-questions }}';
-            const easy = '${{ steps.add-question.outputs.easy-count }}';
-            const medium = '${{ steps.add-question.outputs.medium-count }}';
-            const hard = '${{ steps.add-question.outputs.hard-count }}';
-            
-            // Update the Collection Status section
-            const statsSection = `## 📋 Collection Status
-
-Total Questions: ${total}
-- Easy: ${easy}
-- Medium: ${medium}  
-- Hard: ${hard}`;
-            
-            // Replace the existing Collection Status section
-            const updatedContent = readmeContent.replace(
-              /## 📋 Collection Status[\s\S]*?(?=\n---|\n## |$)/,
-              statsSection + '\n'
-            );
-            
-            // Write updated README
-            fs.writeFileSync('README.md', updatedContent);
-            
-            console.log('✅ README statistics updated');
-
-      - name: Commit final question and updated README
+      - name: Commit final question to repository
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add questions.json README.md
-          git commit -m "Add reviewed question with difficulty assignment and update statistics"
+          git add questions.json
+          git commit -m "Add reviewed question with difficulty assignment"
           git push
 
       - name: Comment on original issue

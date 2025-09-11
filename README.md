@@ -69,13 +69,6 @@ Add ONE of these labels to the pull request before merging:
 - **Behavioral** - Leadership, communication, problem-solving approach
 - **Other** - Miscellaneous topics not covered above
 
-## 📋 Collection Status
-
-Total Questions: 1
-- Easy: 0
-- Medium: 1  
-- Hard: 0
-
 ---
 
 ## 🤝 Community Guidelines
