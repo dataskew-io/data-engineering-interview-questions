@@ -230,12 +230,33 @@ jobs:
               return;
             }
             
-            // Find the temp question file
+            // Extract issue number from PR title to find the correct temp file
+            const prTitle = context.payload.pull_request.title;
+            const issueNumberMatch = prTitle.match(/#(\d+)/);
+            
+            if (!issueNumberMatch) {
+              core.setFailed('Could not extract issue number from PR title');
+              return;
+            }
+            
+            const issueNumber = parseInt(issueNumberMatch[1]);
+            
+            // Find the temp question file for this specific issue
             const files = fs.readdirSync('.');
-            const tempFile = files.find(file => file.startsWith('.temp-question-') && file.endsWith('.json'));
+            const tempFile = files.find(file => {
+              if (file.startsWith('.temp-question-') && file.endsWith('.json')) {
+                try {
+                  const tempData = JSON.parse(fs.readFileSync(file, 'utf8'));
+                  return tempData.issueNumber === issueNumber;
+                } catch (e) {
+                  return false;
+                }
+              }
+              return false;
+            });
             
             if (!tempFile) {
-              core.setFailed('Could not find temporary question file');
+              core.setFailed(`Could not find temporary question file for issue #${issueNumber}`);
               return;
             }
             
@@ -270,6 +291,19 @@ jobs:
             // Clean up temp file
             fs.unlinkSync(tempFile);
             
+            // Clean up any other orphaned temp files
+            const allTempFiles = files.filter(file => file.startsWith('.temp-question-') && file.endsWith('.json'));
+            allTempFiles.forEach(file => {
+              if (file !== tempFile) {
+                try {
+                  fs.unlinkSync(file);
+                  console.log('Cleaned up orphaned temp file:', file);
+                } catch (e) {
+                  console.log('Could not clean up temp file:', file);
+                }
+              }
+            });
+            
             console.log('✅ Question added to collection successfully');
             
             // Set output for use in next step
@@ -280,6 +314,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          # Remove any remaining temp files from git
+          git rm -f .temp-question-*.json 2>/dev/null || true
           git add questions.json
           git commit -m "Add reviewed question with difficulty assignment"
           git push
