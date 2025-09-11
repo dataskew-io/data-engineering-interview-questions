@@ -1,0 +1,11 @@
+{
+  "id": 1757595202697,
+  "question": "What’s the difference between OLTP and OLAP databases?",
+  "company": "Seed Question",
+  "difficulty": null,
+  "topic": "Data Modeling",
+  "solution": "```markdown\nOLTP (Online Transaction Processing):",
+  "submittedBy": "dorianganessa",
+  "submittedAt": "2025-09-11T12:53:22.697Z",
+  "issueNumber": 13
+}
