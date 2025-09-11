@@ -157,11 +157,7 @@ jobs:
             const issueNumber = context.eventName === 'workflow_dispatch' 
               ? context.payload.inputs.issue_number 
               : context.issue.number;
-            github.rest.issues.createComment({
-              issue_number: issueNumber,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `✅ Thank you for your submission! 
+            const submissionComment = `✅ Thank you for your submission! 
               
               Your question has been automatically processed and a pull request has been created for review. 
               
@@ -169,10 +165,16 @@ jobs:
               
               **Next Steps:**
               - Maintainers will review the question for accuracy and appropriateness
-              - The difficulty level and categorization may be adjusted if needed
+              - The difficulty level will be assigned during review
               - You'll be notified when the question is approved and merged
               
-              Thanks for contributing to the community! 🚀`
+              Thanks for contributing to the community! 🚀`;
+              
+            github.rest.issues.createComment({
+              issue_number: issueNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: submissionComment
             });
 
       - name: Add review label to issue
@@ -289,11 +291,7 @@ jobs:
             const issueNumber = '${{ steps.add-question.outputs.issue-number }}';
             const difficulty = '${{ steps.add-question.outputs.difficulty }}';
             
-            await github.rest.issues.createComment({
-              issue_number: parseInt(issueNumber),
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `🎉 **Question Approved and Added!**
+            const commentBody = `🎉 **Question Approved and Added!**
 
 Your question has been successfully reviewed and added to the interview questions collection.
 
@@ -302,7 +300,13 @@ Your question has been successfully reviewed and added to the interview question
 - **Reviewed by:** @${context.payload.pull_request.merged_by.login}
 - **Added on:** ${new Date().toLocaleDateString()}
 
-Thank you for contributing to the community! Your question will help others prepare for their interviews. 🚀`
+Thank you for contributing to the community! Your question will help others prepare for their interviews. 🚀`;
+            
+            await github.rest.issues.createComment({
+              issue_number: parseInt(issueNumber),
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: commentBody
             });
 
             // Close the issue as completed
