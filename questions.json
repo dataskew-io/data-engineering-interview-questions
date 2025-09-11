@@ -1,13 +1,1 @@
-[
-  {
-    "id": 1694524800000,
-    "question": "Explain the difference between OLTP and OLAP systems in data engineering.",
-    "company": "Netflix",
-    "difficulty": "medium",
-    "topic": "System Design",
-    "solution": "OLTP (Online Transaction Processing) systems are designed for real-time transaction processing with high concurrency, while OLAP (Online Analytical Processing) systems are optimized for complex queries and data analysis with historical data.",
-    "submittedBy": "example-user",
-    "submittedAt": "2023-09-12T12:00:00.000Z",
-    "issueNumber": 1
-  }
-]
+[]

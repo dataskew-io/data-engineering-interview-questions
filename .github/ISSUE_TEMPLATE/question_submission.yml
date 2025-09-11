@@ -23,17 +23,6 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: difficulty
-    attributes:
-      label: "Difficulty Level"
-      description: "Select the perceived difficulty of the question."
-      options:
-        - Easy
-        - Medium
-        - Hard
-    validations:
-      required: true
-  - type: dropdown
     id: topic
     attributes:
       label: "Primary Topic"
