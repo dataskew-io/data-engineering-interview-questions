@@ -197,6 +197,12 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Pull latest main branch
+        run: |
+          git fetch origin main
+          git checkout main
+          git pull origin main
+
       - name: Add question to collection with assigned difficulty
         id: add-question
         uses: actions/github-script@v7
