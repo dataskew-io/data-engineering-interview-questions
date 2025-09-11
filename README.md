@@ -71,10 +71,10 @@ Add ONE of these labels to the pull request before merging:
 
 ## 📋 Collection Status
 
-Total Questions: <!-- This will be updated automatically -->
-- Easy: <!-- Auto-calculated -->
-- Medium: <!-- Auto-calculated -->  
-- Hard: <!-- Auto-calculated -->
+Total Questions: 1
+- Easy: 0
+- Medium: 1  
+- Hard: 0
 
 ---
 
