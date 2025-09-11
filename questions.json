@@ -11,5 +11,18 @@
     "issueNumber": 6,
     "reviewedAt": "2025-09-11T12:11:07.097Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1757595202697,
+    "question": "What’s the difference between OLTP and OLAP databases?",
+    "company": "Seed Question",
+    "difficulty": "easy",
+    "topic": "Data Modeling",
+    "solution": "```markdown\nOLTP (Online Transaction Processing):",
+    "submittedBy": "dorianganessa",
+    "submittedAt": "2025-09-11T12:53:22.697Z",
+    "issueNumber": 13,
+    "reviewedAt": "2025-09-11T12:53:50.025Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
