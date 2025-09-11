@@ -157,18 +157,14 @@ jobs:
             const issueNumber = context.eventName === 'workflow_dispatch' 
               ? context.payload.inputs.issue_number 
               : context.issue.number;
-            const submissionComment = `✅ Thank you for your submission! 
-              
-              Your question has been automatically processed and a pull request has been created for review. 
-              
-              The question will be reviewed by maintainers and added to the collection once approved.
-              
-              **Next Steps:**
-              - Maintainers will review the question for accuracy and appropriateness
-              - The difficulty level will be assigned during review
-              - You'll be notified when the question is approved and merged
-              
-              Thanks for contributing to the community! 🚀`;
+            const submissionComment = '✅ Thank you for your submission!\n\n' +
+              'Your question has been automatically processed and a pull request has been created for review.\n\n' +
+              'The question will be reviewed by maintainers and added to the collection once approved.\n\n' +
+              '**Next Steps:**\n' +
+              '- Maintainers will review the question for accuracy and appropriateness\n' +
+              '- The difficulty level will be assigned during review\n' +
+              '- You\'ll be notified when the question is approved and merged\n\n' +
+              'Thanks for contributing to the community! 🚀';
               
             github.rest.issues.createComment({
               issue_number: issueNumber,
@@ -291,16 +287,13 @@ jobs:
             const issueNumber = '${{ steps.add-question.outputs.issue-number }}';
             const difficulty = '${{ steps.add-question.outputs.difficulty }}';
             
-            const commentBody = `🎉 **Question Approved and Added!**
-
-Your question has been successfully reviewed and added to the interview questions collection.
-
-**Final Details:**
-- **Difficulty Level:** ${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
-- **Reviewed by:** @${context.payload.pull_request.merged_by.login}
-- **Added on:** ${new Date().toLocaleDateString()}
-
-Thank you for contributing to the community! Your question will help others prepare for their interviews. 🚀`;
+            const commentBody = '🎉 **Question Approved and Added!**\n\n' +
+              'Your question has been successfully reviewed and added to the interview questions collection.\n\n' +
+              '**Final Details:**\n' +
+              '- **Difficulty Level:** ' + difficulty.charAt(0).toUpperCase() + difficulty.slice(1) + '\n' +
+              '- **Reviewed by:** @' + context.payload.pull_request.merged_by.login + '\n' +
+              '- **Added on:** ' + new Date().toLocaleDateString() + '\n\n' +
+              'Thank you for contributing to the community! Your question will help others prepare for their interviews. 🚀';
             
             await github.rest.issues.createComment({
               issue_number: parseInt(issueNumber),
