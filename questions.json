@@ -37,5 +37,18 @@
     "issueNumber": 15,
     "reviewedAt": "2025-09-14T14:16:30.419Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1759695358999,
+    "question": "How do you preserve the history of dimensional data?",
+    "company": "Prima Assicurazioni",
+    "difficulty": "medium",
+    "topic": "Data Modeling",
+    "solution": "```markdown\nTalk about slowly changing dimensions, the difference between the different types, when to use one over the other and why\n```",
+    "submittedBy": "dorianganessa",
+    "submittedAt": "2025-10-05T20:15:58.999Z",
+    "issueNumber": 17,
+    "reviewedAt": "2025-10-05T20:16:50.586Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
