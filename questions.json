@@ -50,5 +50,18 @@
     "issueNumber": 17,
     "reviewedAt": "2025-10-05T20:16:50.586Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1759745962593,
+    "question": "How would you build a reliable data pipeline?",
+    "company": "Didomi",
+    "difficulty": "medium",
+    "topic": "System Design",
+    "solution": "```markdown\nTalk about data quality, WAP pattern, idempotency, alerts and monitoring + backfills\n```",
+    "submittedBy": "dorianganessa",
+    "submittedAt": "2025-10-06T10:19:22.593Z",
+    "issueNumber": 19,
+    "reviewedAt": "2025-10-06T10:20:57.301Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
