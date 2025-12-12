@@ -232,5 +232,18 @@
     "issueNumber": 61,
     "reviewedAt": "2025-12-12T14:13:51.220Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1765500279545,
+    "question": "How do you manage priorities at work?",
+    "company": "Prima",
+    "difficulty": "medium",
+    "topic": "Behavioral",
+    "solution": "```markdown\nThis was a very general one. I tried to answer with more details possible and a lot of reference to my daily work:\n- set priorities doing team agile session\n- align with business needs\n- align with colleagues and manager\n- first small quick task \n- brake down larger task/projects\n- of course balance deadlines\n- continues feedback from manager and company OKRs\n```",
+    "submittedBy": "nicdelillo",
+    "submittedAt": "2025-12-12T00:44:39.545Z",
+    "issueNumber": 57,
+    "reviewedAt": "2025-12-12T14:15:17.863Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
