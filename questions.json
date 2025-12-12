@@ -167,5 +167,18 @@
     "issueNumber": 33,
     "reviewedAt": "2025-12-12T14:07:01.442Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1765491843812,
+    "question": "Do you know what a Lambda function is? (Python)",
+    "company": "Agile Lab",
+    "difficulty": "easy",
+    "topic": "Live Coding",
+    "solution": "```markdown\n\n```",
+    "submittedBy": "nicdelillo",
+    "submittedAt": "2025-12-11T22:24:03.812Z",
+    "issueNumber": 39,
+    "reviewedAt": "2025-12-12T14:07:22.153Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
