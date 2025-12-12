@@ -323,5 +323,18 @@
     "issueNumber": 45,
     "reviewedAt": "2025-12-12T14:17:55.466Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1765492497094,
+    "question": "Can you explain what IaC is and in what context do you use it? (DE II)",
+    "company": "Agile Lab",
+    "difficulty": "easy",
+    "topic": "Other",
+    "solution": "```markdown\n\n```",
+    "submittedBy": "nicdelillo",
+    "submittedAt": "2025-12-11T22:34:57.094Z",
+    "issueNumber": 41,
+    "reviewedAt": "2025-12-12T14:18:30.656Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
