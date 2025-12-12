@@ -193,5 +193,18 @@
     "issueNumber": 43,
     "reviewedAt": "2025-12-12T14:07:53.023Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1765491640453,
+    "question": "What kind of CI would guarantee and check for good software quality? (DE II)",
+    "company": "Agile Lab",
+    "difficulty": "medium",
+    "topic": "Other",
+    "solution": "```markdown\nTried to talk of usual CI workflows\n- linter\n- type checker\n- formatter\n- unit tester\n- environment set up\n```",
+    "submittedBy": "nicdelillo",
+    "submittedAt": "2025-12-11T22:20:40.453Z",
+    "issueNumber": 37,
+    "reviewedAt": "2025-12-12T14:08:38.028Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
