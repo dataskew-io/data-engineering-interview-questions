@@ -41,7 +41,7 @@
   {
     "id": 1759695358999,
     "question": "How do you preserve the history of dimensional data?",
-    "company": "Prima Assicurazioni",
+    "company": "Prima",
     "difficulty": "medium",
     "topic": "Data Modeling",
     "solution": "```markdown\nTalk about slowly changing dimensions, the difference between the different types, when to use one over the other and why\n```",
