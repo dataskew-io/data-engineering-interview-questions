@@ -102,5 +102,18 @@
     "issueNumber": 25,
     "reviewedAt": "2025-12-12T10:16:07.640Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1765491008914,
+    "question": "Do you know what Slowly Changing Dimensions are and what is type 4?",
+    "company": "Prima",
+    "difficulty": "medium",
+    "topic": "Data Modeling",
+    "solution": "```markdown\n\n```",
+    "submittedBy": "nicdelillo",
+    "submittedAt": "2025-12-11T22:10:08.915Z",
+    "issueNumber": 27,
+    "reviewedAt": "2025-12-12T13:28:32.144Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
