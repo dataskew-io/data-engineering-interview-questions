@@ -115,5 +115,18 @@
     "issueNumber": 27,
     "reviewedAt": "2025-12-12T13:28:32.144Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1765491150169,
+    "question": "Do you know what a Singleton pattern is? (DE II position)",
+    "company": "Agile Lab",
+    "difficulty": "easy",
+    "topic": "Data Structures & Algorithms",
+    "solution": "```markdown\n\n```",
+    "submittedBy": "nicdelillo",
+    "submittedAt": "2025-12-11T22:12:30.169Z",
+    "issueNumber": 29,
+    "reviewedAt": "2025-12-12T13:29:05.821Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
