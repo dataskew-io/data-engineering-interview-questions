@@ -40,6 +40,19 @@ body:
         - Other
     validations:
       required: true
+  - type: dropdown
+    id: interviewStage
+    attributes:
+      label: "Interview Stage"
+      description: "Select the stage of the interview where this question was asked."
+      options:
+        - HR screening
+        - Technical interview
+        - Behavioral interview
+        - Hiring Manager interview
+        - Other
+    validations:
+      required: true
   - type: textarea
     id: solution
     attributes:
