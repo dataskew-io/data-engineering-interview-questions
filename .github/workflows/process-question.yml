@@ -69,10 +69,11 @@ jobs:
             const question = extractField('Question', issueBody);
             const company = extractField('Company', issueBody);
             const topic = extractField('Primary Topic', issueBody);
+            const interviewStage = extractField('Interview Stage', issueBody);
             const solution = extractField('Solution/Answer \\(Optional\\)', issueBody);
             
             // Validate required fields
-            if (!question || !company || !topic) {
+            if (!question || !company || !topic || !interviewStage) {
               core.setFailed('Missing required fields in the issue');
               return;
             }
@@ -84,6 +85,7 @@ jobs:
               company: company,
               difficulty: null, // To be assigned during review
               topic: topic,
+              interviewStage: interviewStage,
               solution: solution || null,
               submittedBy: issue.user.login,
               submittedAt: new Date().toISOString(),
@@ -122,6 +124,7 @@ jobs:
             ### Review Checklist:
             - [ ] Question is clear and well-formatted
             - [ ] Topic categorization is correct
+            - [ ] Interview stage is correctly identified
             - [ ] Solution (if provided) is accurate
             - [ ] No sensitive or proprietary information
             
