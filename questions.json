@@ -432,5 +432,19 @@
     "issueNumber": 76,
     "reviewedAt": "2026-02-21T13:46:41.995Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1771680797871,
+    "question": "Given a table with user_id, login_timestamp, and logout_timestamp, find the maximum number of users online at the same time. The code must be syntactically correct and ideally compile, but the editor doesn't allow running or testing it.",
+    "company": "Unit8",
+    "difficulty": "medium",
+    "topic": "Live Coding",
+    "interviewStage": "Technical interview",
+    "solution": "```markdown\n\n```",
+    "submittedBy": "nmswe",
+    "submittedAt": "2026-02-21T13:33:17.871Z",
+    "issueNumber": 78,
+    "reviewedAt": "2026-02-21T13:47:19.815Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
