@@ -404,5 +404,19 @@
     "issueNumber": 69,
     "reviewedAt": "2026-02-07T15:48:37.446Z",
     "reviewedBy": "dorianganessa"
+  },
+  {
+    "id": 1771680137902,
+    "question": "What are your main responsibilities within your company? What responsibilities do you have toward clients/stakeholders?",
+    "company": "Unit8",
+    "difficulty": "easy",
+    "topic": "Behavioral",
+    "interviewStage": "HR screening",
+    "solution": "```markdown\n\n```",
+    "submittedBy": "nmswe",
+    "submittedAt": "2026-02-21T13:22:17.903Z",
+    "issueNumber": 74,
+    "reviewedAt": "2026-02-21T13:45:57.539Z",
+    "reviewedBy": "dorianganessa"
   }
 ]
