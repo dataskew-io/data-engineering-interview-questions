@@ -1,0 +1,12 @@
+{
+  "id": 1771680514477,
+  "question": "Write an algorithm that finds all prime numbers from 1 to 100. Follow-up: how would you optimize it to scale up to 1,000,000? What is the time complexity?",
+  "company": "Unit8",
+  "difficulty": null,
+  "topic": "Live Coding",
+  "interviewStage": "Technical interview",
+  "solution": "```markdown\n\n```",
+  "submittedBy": "nmswe",
+  "submittedAt": "2026-02-21T13:28:34.477Z",
+  "issueNumber": 76
+}
