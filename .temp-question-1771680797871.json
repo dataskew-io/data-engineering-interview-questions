@@ -1,0 +1,12 @@
+{
+  "id": 1771680797871,
+  "question": "Given a table with user_id, login_timestamp, and logout_timestamp, find the maximum number of users online at the same time. The code must be syntactically correct and ideally compile, but the editor doesn't allow running or testing it.",
+  "company": "Unit8",
+  "difficulty": null,
+  "topic": "Live Coding",
+  "interviewStage": "Technical interview",
+  "solution": "```markdown\n\n```",
+  "submittedBy": "nmswe",
+  "submittedAt": "2026-02-21T13:33:17.871Z",
+  "issueNumber": 78
+}
