@@ -1,0 +1,12 @@
+{
+  "id": 1783354302381,
+  "question": "What is shuffle and what are the transformations that triggers it? Explain how it works, and how and why we should avoid it",
+  "company": "Agile Lab",
+  "difficulty": null,
+  "topic": "Performance Optimisation",
+  "interviewStage": "Technical interview",
+  "solution": "```markdown\nDefine what shuffle is (read + write step, network movement of data).\nTalk about broadcast join in case one side is small, bucketing if possible, or cumulative table design if we can alter the modeling of data.\nCite DISTINCT, GROUP_BY, ORDER BY, that triggers it regardless.\n```",
+  "submittedBy": "montanarograziano",
+  "submittedAt": "2026-07-06T16:11:42.381Z",
+  "issueNumber": 82
+}
