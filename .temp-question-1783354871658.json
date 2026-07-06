@@ -1,0 +1,12 @@
+{
+  "id": 1783354871658,
+  "question": "What is CAP theorem?",
+  "company": "Agile Lab",
+  "difficulty": null,
+  "topic": "System Design",
+  "interviewStage": "Technical interview",
+  "solution": "```markdown\nExplain what the CAP theorem is, how different databases \"solve\" it. Talk about Cassandra and DynamoDB that are AP, and Mongo which is CP. Cite eventual consistency, quorum strategy.\n```",
+  "submittedBy": "montanarograziano",
+  "submittedAt": "2026-07-06T16:21:11.658Z",
+  "issueNumber": 84
+}
